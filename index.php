@@ -9,6 +9,7 @@ require_once __DIR__ . "/Food.php";
 require_once __DIR__ . "/Games.php";
 require_once __DIR__ . "/PetHouse.php";
 require_once __DIR__ . "/User.php";
+require_once __DIR__ . "/CreditCard.php";
 
 $enova_crocchette_1 = new Food("Crocchette Mono", 62.5, "Enova", "Pet Snacks", "Pollo", "Per cani", "+16 mesi", "12kg" );
 // var_dump($enova_crocchette_1);
@@ -34,11 +35,13 @@ $cuccetta = new PetHouse("Cuscino imbottitura soffice", 23, "Pet around you", "P
 $federico = new User("Federico", "fede180600@libero.it", false);
 $federico->addProductToCart($pallina_tennis);
 $federico->addProductToCart($enova_crocchette_1);
+$federico_credit_card = new CreditCard("1234 5678 9101 1121", "02/2022", "322", false);
 
 $marco = new User("Marco", "marco54@gmail.com", true);
 $marco->addProductToCart($casetta_xl);
 $marco->addProductToCart($osso_gomma);
 $marco->addProductToCart($cuccetta);
+$marco_credit_card = new CreditCard("1098 7654 3210 1234", "07/2032", "452", true);
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +83,8 @@ $marco->addProductToCart($cuccetta);
             <?php } ?>
         </ul>
         <h3>Valore Carrello:<?php echo $federico->getPriceDiscounted() ?></h3>
+        <div style="color: #102156"><strong><?php echo $federico_credit_card->getValidCard()?></strong></div>
+        <button style="margin-top: 15px;">Paga</button>
     </section>
     <section>
         <h2>Ciao <?php echo $marco->name ?> ecco il tuo Carrello:</h2>
@@ -89,6 +94,8 @@ $marco->addProductToCart($cuccetta);
             <?php } ?>
         </ul>
         <h3>Valore Carrello:<?php echo $marco->getPriceDiscounted() ?></h3>
+        <div style="color: #102156"><strong><?php echo $marco_credit_card->getValidCard()?></strong></div>
+        <button style="margin-top: 15px;">Paga</button>
     </section>
 </main>
 <!-- /MAIN -->
