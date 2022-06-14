@@ -14,7 +14,7 @@ class Product {
     }
 
     public function productInfo() {
-        return "$this->brand $this->name prezzo: $this->price";
+        return "$this->brand $this->name prezzo: €$this->price";
     }
 }
 ?>

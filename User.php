@@ -24,12 +24,12 @@ class User {
         return $total_price;
     }
 
-    function getPriceDiscounted() {
+    public function getPriceDiscounted() {
         $discounted_price = 0;
         if($this->registered === true) {
-            $discounted_price = ($this->getPrice() - ($this->getPrice() * 20) / 100);
+            $discounted_price = " €" . ($this->getPrice() - ($this->getPrice() * 20) / 100) . "<small> Con sconto del 20% applicato</small>";
         } else {
-           $discounted_price = "Prezzo pieno: €" . $this->getPrice() . " Registrati e non perderti il 20% di sconto";
+           $discounted_price = " €" . $this->getPrice() . "<small> Registrati e non perderti il 20% di sconto</small>";
         }
         return $discounted_price;
     }
