@@ -12,5 +12,9 @@ class Product {
         $this->brand = $_brand;
         $this->category = $_category;
     }
+
+    public function productInfo() {
+        return "$this->brand $this->name prezzo: $this->price";
+    }
 }
 ?>
