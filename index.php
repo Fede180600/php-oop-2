@@ -8,6 +8,7 @@
 require_once __DIR__ . "/Food.php";
 require_once __DIR__ . "/Games.php";
 require_once __DIR__ . "/PetHouse.php";
+require_once __DIR__ . "/User.php";
 
 $enova_crocchette_1 = new Food("Crocchette Mono", 62.5, "Enova", "Pet Snacks", "Pollo", "Per cani", "+16 mesi", "12kg" );
 var_dump($enova_crocchette_1);
@@ -29,4 +30,10 @@ var_dump($casetta_xl);
 
 $cuccetta = new PetHouse("Cuscino imbottitura soffice", 23, "Pet around you", "PetHouse", "35 CM x 40 CM", "Adatto agli interni");
 var_dump($cuccetta);
+
+$federico = new User("Federico", "fede180600@libero.it", false);
+$federico->addProductToCart($pallina_tennis);
+$federico->addProductToCart($enova_crocchette_1);
+echo $federico->getPriceDiscounted();
+
 ?>
